@@ -6,11 +6,11 @@ namespace MvcDemo.Controllers
 {
     public class AccountController : Controller
     {
-        public UserManager<IdentityUser> UserManager { get; }
-        public SignInManager<IdentityUser> signInManager { get; }
+        public UserManager<ApplicationUser> UserManager { get; }
+        public SignInManager<ApplicationUser> signInManager { get; }
         public AccountController(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
         {
             UserManager = userManager;
             this.signInManager = signInManager;
@@ -28,10 +28,11 @@ namespace MvcDemo.Controllers
         {
             if(ModelState.IsValid)
             {
-                IdentityUser user = new IdentityUser
+                ApplicationUser user = new ApplicationUser
                 {
                     UserName = model.Email,
-                    Email = model.Email
+                    Email = model.Email,
+                    City = model.City,
                 };
 
                 IdentityResult identityResult =  await UserManager.CreateAsync(user, model.Password);

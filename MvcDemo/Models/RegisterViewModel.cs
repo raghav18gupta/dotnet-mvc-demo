@@ -20,6 +20,8 @@ namespace MvcDemo.Models
         [Display(Name = "Confirm Password")]
         [Compare("Password", ErrorMessage ="Password and Confirmation Password do not match")]
         public string ConfirmPassword { get; set;}
+
+        public string City { get; set; }
     }
 }
 

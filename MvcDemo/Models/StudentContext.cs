@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MvcDemo.Models
 {
-    public class StudentContext : IdentityDbContext
+    public class StudentContext : IdentityDbContext<ApplicationUser>
     {
         public StudentContext(DbContextOptions<StudentContext> options) : base(options)
         {

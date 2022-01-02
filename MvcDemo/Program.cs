@@ -19,7 +19,7 @@ builder.Services.AddDbContext<StudentContext>(options =>
 });
 
 builder.Services
-    .AddIdentity<IdentityUser, IdentityRole>(options =>
+    .AddIdentity<ApplicationUser, IdentityRole>(options =>
     {
         options.Password.RequiredLength = 10;
         options.Password.RequiredUniqueChars = 0;
