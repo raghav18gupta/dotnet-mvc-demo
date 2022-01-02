@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MvcDemo.Models;
 
@@ -32,6 +33,7 @@ namespace MvcDemo.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create(Student student)
         {
             if(ModelState.IsValid)
@@ -52,6 +54,7 @@ namespace MvcDemo.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Create()
         {
             LoadDepartment();

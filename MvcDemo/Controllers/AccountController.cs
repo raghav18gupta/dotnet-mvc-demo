@@ -73,11 +73,18 @@ namespace MvcDemo.Controllers
                 {
                     return string.IsNullOrEmpty(returnUrl)
                         ? RedirectToAction("Index", "home")
-                        : Redirect(returnUrl);
+                        : LocalRedirect(returnUrl);
                 }
                 ModelState.AddModelError(string.Empty, "Invalid login attempt");
             }
             return View();
+        }
+
+        [AcceptVerbs("Get", "Post")]
+        public async Task<IActionResult> IsEmailInUse(string Email)
+        {
+            var user = await UserManager.FindByEmailAsync(Email);
+            return user == null ? Json(true) : Json($"Email {Email} is already in use");
         }
     }
 }
