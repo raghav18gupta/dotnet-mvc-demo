@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace MvcDemo.Models
 {
-    public class StudentContext : DbContext
+    public class StudentContext : IdentityDbContext
     {
         public StudentContext(DbContextOptions<StudentContext> options) : base(options)
         {
