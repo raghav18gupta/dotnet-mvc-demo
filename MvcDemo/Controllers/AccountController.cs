@@ -6,6 +6,7 @@ namespace MvcDemo.Controllers
 {
     public class AccountController : Controller
     {
+        
         public UserManager<ApplicationUser> UserManager { get; }
         public SignInManager<ApplicationUser> signInManager { get; }
         public AccountController(
@@ -87,5 +88,7 @@ namespace MvcDemo.Controllers
             var user = await UserManager.FindByEmailAsync(Email);
             return user == null ? Json(true) : Json($"Email {Email} is already in use");
         }
+
+        
     }
 }
